@@ -2,7 +2,25 @@
 class SimpleMatrix:
    def __init__(self, matrix):
       self._matrix = matrix
-      
+      self._rows = rows
+      self._columns = columns
+
+   def first_echelon_form(self):
+      col_counter = 0
+      piv_r = 0
+      prev_piv = -1
+      while (col_counter < self._columns):
+         zeroc = False
+         for zi in range(piv_r,self._rows):
+            if self._matrix[i][c] != 0:
+               zeroc = True
+               piv_r = i
+               break
+
+         # the column is zero
+         if zeroc:
+            pass
+            
    def exchange_rows(self, row1, row2):
       row1 -= 1
       row2 -= 1
@@ -27,7 +45,7 @@ class SimpleMatrix:
          self._matrix[row][c] = newval
 
 matrix = [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0], [7.0, 8.0, 9.0]]
-simplematrix = SimpleMatrix(matrix)
+simplematrix = SimpleMatrix(matrix, 3, 3)
 simplematrix.exchange_rows(1, 2)
 simplematrix.multiply_row_by_const(3, 1.0/7.0)
 simplematrix.print_matrix()
